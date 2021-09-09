@@ -11,6 +11,7 @@
     "@mui/material": "next",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "express": "^4.17.1",
     "material-icons": "^1.2.1",
     "react": "latest",
     "react-dom": "latest",
@@ -23,6 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:5000",
   "browserslist": {
     "production": [
       ">0.2%",

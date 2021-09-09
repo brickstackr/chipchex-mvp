@@ -1,36 +1,36 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import ButtonAppBar from './components/AppBar';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import ProTip from './ProTip';
+import AdvancedImageList from './components/ImageList';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Chipchex
-      </Link>{' '}
-      {new Date().getFullYear()}.
-    </Typography>
-  );
-}
+class App extends Component {
+state = {
+    data: null
+  };
 
-export default function App() {
-  return (
-    <div>
-      <ButtonAppBar />
-        <Container maxWidth="sm">
-          <Box sx={{ my: 4 }}>
-            <Typography variant="h4" component="h1" gutterBottom>
-              Chipchex MVP App using React, TypeScript, and Material UI
-            </Typography>
-            <ProTip />
-            <Copyright />
-          </Box>
-        </Container>
+  componentDidMount() {
+    this.callBackendAPI()
+      .then(res => this.setState({ data: res.express }))
+      .catch(err => console.log(err));
+  }
+    // fetching the GET route from the Express server which matches the GET route from server.js
+  callBackendAPI = async () => {
+    const response = await fetch('/express_backend');
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message) 
+    }
+    return body;
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <ButtonAppBar />
+          <AdvancedImageList />
       </div>
-  );
+    );
+  }
 }
+
+export default App;
