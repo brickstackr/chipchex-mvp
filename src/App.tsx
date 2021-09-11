@@ -1,6 +1,8 @@
+import { Container } from '@material-ui/core';
 import React, { Component } from 'react';
 import ButtonAppBar from './components/AppBar';
 import AdvancedImageList from './components/ImageList';
+import theme from './theme';
 
 class App extends Component {
 state = {
@@ -26,8 +28,10 @@ state = {
   render() {
     return (
       <div className="App">
-        <ButtonAppBar />
+        <Container>
+          <ButtonAppBar />
           <AdvancedImageList />
+        </Container>
       </div>
     );
   }
