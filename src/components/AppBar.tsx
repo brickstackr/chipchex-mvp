@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme, createStyles, createTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -17,10 +17,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import { purple, green } from '@material-ui/core/colors';
+import theme from '../theme';
+import { ThemeProvider } from '@material-ui/styles';
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       display: 'flex',
@@ -30,6 +33,9 @@ const useStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
+      palette: {
+        primary: theme.palette.primary
+      }
     },
     appBarShift: {
       width: `calc(100% - ${drawerWidth}px)`,
@@ -79,6 +85,17 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+const colorTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#708A8C',
+    },
+    secondary: {
+      main: '#705C5D'
+    }
+  }
+});
+
 export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
@@ -93,14 +110,15 @@ export default function PersistentDrawerLeft() {
   };
 
   return (
+    <ThemeProvider theme={colorTheme}>
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
         position="fixed"
-        color="primary"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
+        color="primary"
       >
         <Toolbar>
           <IconButton
@@ -181,5 +199,6 @@ export default function PersistentDrawerLeft() {
         </Typography>
       </main>
     </div>
+    </ThemeProvider>
   );
 }

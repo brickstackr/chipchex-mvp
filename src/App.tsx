@@ -2,9 +2,18 @@ import { Container } from '@material-ui/core';
 import React, { Component } from 'react';
 import ButtonAppBar from './components/AppBar';
 import AdvancedImageList from './components/ImageList';
+import { withStyles } from "@material-ui/core/styles";
 import theme from './theme';
 
+const styles = {
+  root: {
+    primary: '#3F5771',
+    secondary: '#F48847'
+  }
+ };
+
 class App extends Component {
+
 state = {
     data: null
   };
@@ -27,14 +36,14 @@ state = {
 
   render() {
     return (
-      <div className="App">
-        <Container>
-          <ButtonAppBar />
-          <AdvancedImageList />
-        </Container>
-      </div>
+        <div className="{classes.root}">
+          <Container>
+            <ButtonAppBar />
+            <AdvancedImageList />
+          </Container>
+        </div>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
