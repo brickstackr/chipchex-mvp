@@ -12,7 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { MonetizationOnRounded, LocalShippingRounded } from '@material-ui/icons';
+import { MonetizationOnRounded, LocalShippingRounded, ShoppingCartRounded, CallRounded } from '@material-ui/icons';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -23,6 +23,7 @@ import theme from '../theme';
 import { ThemeProvider } from '@material-ui/styles';
 import { Box } from '@mui/system';
 import { Avatar } from '@material-ui/core';
+import { flexbox } from '@mui/system';
 
 const drawerWidth = 240;
 
@@ -136,17 +137,30 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Chipchex Marketplace
-          </Typography>
-          <Box>
+          <Box justifyContent="flex-start" flexGrow={1}>
+            <Typography variant="h4" noWrap>
+              Chipchex Marketplace
+            </Typography>
+          </Box>
+          <Box display="flex-end" flexGrow={1}>
             <IconButton aria-label="add an alarm">
               <MonetizationOnRounded />
-              Active Offers
+              <Typography variant="button"> Offers </Typography>
             </IconButton>
             <IconButton aria-label="add an alarm">
               <LocalShippingRounded />
-              Bill of Materials
+              <Typography variant="button"> Materials </Typography>
+            </IconButton>
+          </Box>
+          <Box display="flex-end" flexGrow={1}>
+            <Avatar>H</Avatar>
+          </Box>
+          <Box display="flex-end" flexGrow={1}>
+            <IconButton>
+              <ShoppingCartRounded />
+            </IconButton>
+            <IconButton>
+              <CallRounded />
             </IconButton>
           </Box>
         </Toolbar>
