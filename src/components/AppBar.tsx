@@ -12,11 +12,12 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { MonetizationOnRounded, LocalShippingRounded, ShoppingCartRounded, CallRounded } from '@material-ui/icons';
+import { MonetizationOnRounded, LocalShippingRounded, ShoppingCartRounded, CallRounded, Battery80Rounded } from '@material-ui/icons';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import { ComputerRounded } from '@material-ui/icons';
 import MailIcon from '@material-ui/icons/Mail';
 import { purple, green } from '@material-ui/core/colors';
 import theme from '../theme';
@@ -181,16 +182,16 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['SCADA', 'Drives', 'Batteries', 'Industrial Hardware'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? <ComputerRounded /> : <Battery80Rounded />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {['Sell my PLC', 'Sell Other Hardware', 'Offers'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
