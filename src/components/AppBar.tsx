@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { MonetizationOnRounded, LocalShippingRounded } from '@material-ui/icons';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -20,6 +21,8 @@ import MailIcon from '@material-ui/icons/Mail';
 import { purple, green } from '@material-ui/core/colors';
 import theme from '../theme';
 import { ThemeProvider } from '@material-ui/styles';
+import { Box } from '@mui/system';
+import { Avatar } from '@material-ui/core';
 
 const drawerWidth = 240;
 
@@ -93,6 +96,9 @@ const colorTheme = createTheme({
     secondary: {
       main: '#705C5D'
     }
+  },
+  typography: {
+    fontFamily: 'Roboto'
   }
 });
 
@@ -133,6 +139,16 @@ export default function PersistentDrawerLeft() {
           <Typography variant="h6" noWrap>
             Chipchex Marketplace
           </Typography>
+          <Box>
+            <IconButton aria-label="add an alarm">
+              <MonetizationOnRounded />
+              Active Offers
+            </IconButton>
+            <IconButton aria-label="add an alarm">
+              <LocalShippingRounded />
+              Bill of Materials
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
       <Drawer
