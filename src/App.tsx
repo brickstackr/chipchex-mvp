@@ -1,49 +1,30 @@
-import { Container } from '@material-ui/core';
-import React, { Component } from 'react';
-import ButtonAppBar from './components/AppBar';
-import AdvancedImageList from './components/ImageList';
-import { withStyles } from "@material-ui/core/styles";
-import theme from './theme';
+import { useState, useEffect } from 'react'
+import { supabase } from './supabaseClient'
+import Auth from './Auth'
+import Account from './Account'
+import { Session } from '@supabase/gotrue-js'
+import { Container } from '@material-ui/core'
+import AdvancedImageList from './components/ImageList'
+import PersistentDrawerLeft from './components/AppBar'
 
-const styles = {
-  root: {
-    primary: '#3F5771',
-    secondary: '#F48847'
-  }
- };
+export default function Home() {
+  const [session, setSession] = useState<Session | null>(null);
 
-class App extends Component {
+  useEffect(() => {
+    setSession(supabase.auth.session())
 
-state = {
-    data: null
-  };
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
 
-  componentDidMount() {
-    this.callBackendAPI()
-      .then(res => this.setState({ data: res.express }))
-      .catch(err => console.log(err));
-  }
-    // fetching the GET route from the Express server which matches the GET route from server.js
-  callBackendAPI = async () => {
-    const response = await fetch('/express_backend');
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message) 
-    }
-    return body;
-  };
-
-  render() {
-    return (
-        <div className="{classes.root}">
-          <Container>
-            <ButtonAppBar />
-            <AdvancedImageList />
-          </Container>
-        </div>
-    );
-  }
+  return (
+    <Container>
+    <PersistentDrawerLeft />
+    <div className="container" style={{ padding: '50px 0 100px 0' }}>
+      {!session ? <Auth /> : <Account key={session.user?.id} session={session} />}
+    </div>
+    <AdvancedImageList />
+    </Container>
+  )
 }
-
-export default withStyles(styles)(App);

@@ -9,6 +9,7 @@
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@mui/material": "next",
+    "@supabase/supabase-js": "^1.22.6",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "express": "^4.17.1",
