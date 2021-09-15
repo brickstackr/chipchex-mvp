@@ -16,6 +16,7 @@
     "material-icons": "^1.2.1",
     "react": "latest",
     "react-dom": "latest",
+    "react-material-ui-carousel": "^2.3.1",
     "react-scripts": "latest",
     "typescript": "latest"
   },

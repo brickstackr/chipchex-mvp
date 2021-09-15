@@ -205,9 +205,6 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
-          Chipchex Marketplace is a trusted environment to buy and sell secondhand industrial electronics. 
-        </Typography>
       </main>
     </div>
     </ThemeProvider>
