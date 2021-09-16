@@ -7,6 +7,7 @@ import { Container } from '@material-ui/core'
 import AdvancedImageList from './components/ImageList'
 import PersistentDrawerLeft from './components/AppBar'
 import Example from './CarouselDemo'
+import './Example.scss';
 
 export default function Home() {
   const [session, setSession] = useState<Session | null>(null);
