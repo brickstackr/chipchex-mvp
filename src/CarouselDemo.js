@@ -84,47 +84,47 @@ function Banner(props) {
 
 const items = [
     {
-        Name: "Electronics",
-        Caption: "Electrify your friends!",
+        Name: "Industrial Electronics",
+        Caption: "Automation solutions",
         contentPosition: "left",
         Items: [
             {
-                Name: "Macbook Pro",
-                Image: "https://source.unsplash.com/featured/?macbook"
+                Name: "PLC Hardware",
+                Image: "/demo-images/demo1.jpg"
             },
             {
-                Name: "iPhone",
-                Image: "https://source.unsplash.com/featured/?iphone"
+                Name: "IN STOCK NOW",
+                Image: "/demo-images/demo3.jpg"
             }
         ]
     },
     {
-        Name: "Home Appliances",
-        Caption: "Say no to manual home labour!",
+        Name: "Go Go Go",
+        Caption: "Work smarter, not harder",
         contentPosition: "middle",
         Items: [
             {
-                Name: "Washing Machine WX9102",
-                Image: "https://source.unsplash.com/featured/?washingmachine"
+                Name: "VFD",
+                Image: "/demo-images/demo4.jpg"
             },
             {
-                Name: "Learus Vacuum Cleaner",
-                Image: "https://source.unsplash.com/featured/?vacuum,cleaner"
+                Name: "Batteries",
+                Image: "/demo-images/demo7.jpg"
             }
         ]
     },
     {
-        Name: "Decoratives",
-        Caption: "Give style and color to your living room!",
+        Name: "Power Up",
+        Caption: "Upgrade your business machines",
         contentPosition: "right",
         Items: [
             {
-                Name: "Living Room Lamp",
-                Image: "https://source.unsplash.com/featured/?lamp"
+                Name: "CPU",
+                Image: "/demo-images/demo5.jpg"
             },
             {
-                Name: "Floral Vase",
-                Image: "https://source.unsplash.com/featured/?vase"
+                Name: "GPU",
+                Image: "/demo-images/demo6.jpg"
             }
         ]
     }
@@ -192,7 +192,7 @@ class BannerExample extends React.Component {
     render() {
         return (
             <div style={{ marginTop: "50px", color: "#494949" }}>
-                <h2>Example: eBay&trade; style</h2>
+                <h2>Verified secondhand industrial electronics</h2>
 
                 <Carousel
                     className="Example"
@@ -219,72 +219,6 @@ class BannerExample extends React.Component {
                     }
                 </Carousel>
 
-
-                <FormLabel component="legend">Options</FormLabel>
-                <FormControlLabel
-                    control={
-                        <Checkbox onChange={this.toggleAutoPlay} checked={this.state.autoPlay} value="autoplay"
-                            color="primary" />
-                    }
-                    label="Auto-play"
-                />
-                <FormControlLabel
-                    control={
-                        <Checkbox onChange={this.toggleIndicators} checked={this.state.indicators} value="indicators"
-                            color="primary" />
-                    }
-                    label="Indicators"
-                />
-                <FormControlLabel
-                    control={
-                        <Checkbox onChange={this.toggleNavButtonsAlwaysVisible} checked={this.state.navButtonsAlwaysVisible} value="NavButtonsAlwaysVisible" color="primary" />
-                    }
-                    label="NavButtonsAlwaysVisible"
-                />
-
-                <FormControlLabel
-                    control={
-                        <Checkbox onChange={this.toggleNavButtonsAlwaysInvisible} checked={this.state.navButtonsAlwaysInvisible} value="NavButtonsAlwaysInvisible" color="primary" />
-                    }
-                    label="NavButtonsAlwaysInvisible"
-                />
-                <FormControlLabel
-                    control={
-                        <Checkbox onChange={this.toggleCycleNavigation} checked={this.state.cycleNavigation} value="CycleNavigation" color="primary" />
-                    }
-                    label="CycleNavigation"
-                />
-
-                <FormControlLabel
-                    control={
-                        <RadioGroup name="animation" value={this.state.animation} onChange={this.changeAnimation} row
-                            style={{ marginLeft: "10px" }}>
-                            <FormControlLabel value="fade" control={<Radio color="primary" />} label="Fade" />
-                            <FormControlLabel value="slide" control={<Radio color="primary" />} label="Slide" />
-                        </RadioGroup>
-                    }
-                />
-
-                <FormControlLabel
-                    control={
-                        <div style={{ width: 300 }}>
-                            <Typography id="discrete-slider" gutterBottom>
-                                Animation Duration (Timeout) in ms
-                            </Typography>
-                            <Slider
-                                defaultValue={500}
-                                getAriaValueText={() => `${this.state.timeout}ms`}
-                                aria-labelledby="discrete-slider"
-                                valueLabelDisplay="auto"
-                                step={100}
-                                marks
-                                min={100}
-                                max={2000}
-                                onChange={this.changeTimeout}
-                            />
-                        </div>
-                    }
-                />
 
             </div>
 
