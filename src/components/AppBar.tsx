@@ -181,13 +181,25 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </div>
         <Divider />
-        <List>
-          {['SCADA', 'Drives', 'Batteries', 'Industrial Hardware'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <ComputerRounded /> : <Battery80Rounded />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+        <List component="nav">
+          <ListItem button>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <a href="/brands"><ListItemText primary="Brands" /></a>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <a href="/new-listings"><ListItemText primary="New Listings" /></a>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <a href="/suggested-grid"><ListItemText primary="Suggested Grid" /></a>
+          </ListItem>
         </List>
         <Divider />
         <List>

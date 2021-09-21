@@ -18,6 +18,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-material-ui-carousel": "^2.3.1",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "latest",
     "typescript": "latest"
   },
@@ -39,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.9"
   }
 }
