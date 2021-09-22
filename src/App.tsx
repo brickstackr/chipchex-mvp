@@ -3,15 +3,25 @@ import { supabase } from './supabaseClient'
 import Auth from './Auth'
 import Account from './Account'
 import { Session } from '@supabase/gotrue-js'
-import { Container } from '@material-ui/core'
-import AdvancedImageList from './components/ImageList'
-import PersistentDrawerLeft from './components/AppBar'
+import { Container } from '@mui/material'
+import AppBarHeader from './components/AppBar'
 import Example from './CarouselDemo'
 import './Example.scss';
 import SuggestedGrid from './components/SuggestedGrid/SuggestedGrid';
 import Brands from './components/Brands/Brands';
 import NewListings from './components/NewListings/NewListings';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ThemeProvider, createMuiTheme} from '@mui/material/styles';
+import { makeStyles } from '@mui/styles'
+
+const theme = createMuiTheme();
+
+const useStyles = makeStyles((theme:any) => {
+  root: {
+    // some css that access to theme
+  }
+});
+
 export default function Home() {
   const [session, setSession] = useState<Session | null>(null);
 
@@ -24,8 +34,9 @@ export default function Home() {
   }, [])
 
   return (
+    <ThemeProvider theme={theme}>
     <Container>
-    <PersistentDrawerLeft />
+    <AppBarHeader />
     <Example />
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
       {!session ? <Auth /> : <Account key={session.user?.id} session={session} />}
@@ -47,5 +58,6 @@ export default function Home() {
         </BrowserRouter>
     </div>
     </Container>
+    </ThemeProvider>
   )
 }

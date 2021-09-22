@@ -16,7 +16,7 @@ import {
     RadioGroup,
     FormLabel,
     Slider,
-} from '@material-ui/core';
+} from '@mui/material';
 
 function Banner(props) {
     if (props.newProp) console.log(props.newProp)
