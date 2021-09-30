@@ -13,7 +13,7 @@ export default function CardCarousel() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image="demo-images/demo1.jpg"
           alt="green iguana"
         />
         <CardContent>
