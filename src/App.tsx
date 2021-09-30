@@ -5,14 +5,15 @@ import Account from './Account'
 import { Session } from '@supabase/gotrue-js'
 import { Container } from '@mui/material'
 import AppBarHeader from './components/AppBar'
-import Example from './CarouselDemo'
-import './Example.scss';
 import SuggestedGrid from './components/SuggestedGrid/SuggestedGrid';
 import Brands from './components/Brands/Brands';
 import NewListings from './components/NewListings/NewListings';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ThemeProvider, createMuiTheme} from '@mui/material/styles';
 import { makeStyles } from '@mui/styles'
+import { Card } from '@mui/material';
+import CardCarousel from './components/CardCarousel/CardCarousel';
+import { Grid } from '@mui/material';
 
 const theme = createMuiTheme();
 
@@ -37,11 +38,14 @@ export default function Home() {
     <ThemeProvider theme={theme}>
     <Container>
     <AppBarHeader />
-    <Example />
+
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
       {!session ? <Auth /> : <Account key={session.user?.id} session={session} />}
     </div>
     <div className="wrapper">
+    <Grid>
+    <CardCarousel />
+    </Grid> 
       <h1>Browse</h1>
         <BrowserRouter>
           <Switch>
