@@ -8,11 +8,11 @@ import { CardActionArea, Box, Pagination } from '@mui/material';
 export default function CardCarousel() {
   return (
     <Box>
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 800 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height="500"
           image="demo-images/demo1.jpg"
           alt="green iguana"
         />
